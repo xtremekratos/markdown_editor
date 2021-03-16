@@ -52,7 +52,7 @@ class MarkdownEditor extends StatefulWidget {
   final TabChange tabChange;
 
   /// When title or text changed
-  final VoidCallback textChange;
+  final ValueChanged<String> textChange;
 
   /// Change icon color, eg: color of font_bold icon.
   final Color actionIconColor;
@@ -114,37 +114,91 @@ class MarkdownEditorWidgetState extends State<MarkdownEditor>
 
   @override
   Widget build(BuildContext context) {
-    return TabBarView(
-      controller: _controller,
-      children: <Widget>[
-        SafeArea(
-          child: MdEditor(
-            key: _editorKey,
-            padding: widget.padding,
-            initText: widget.initText,
-            initTitle: widget.initTitle,
-            hintText: widget.hintText,
-            hintTitle: widget.hintTitle,
-            titleStyle: widget.titleTextStyle,
-            textStyle: widget.textStyle,
-            imageSelect: widget.imageSelect,
-            textChange: widget.textChange,
-            actionIconColor: widget.actionIconColor,
-            cursorColor: widget.cursorColor,
-            appendBottomWidget: widget.appendBottomWidget,
+    return
+        // Column(
+        //   children: [
+        //     TabBar(
+        //       controller: _controller,
+        //       tabs: [
+        //         Tab(
+        //           text: 'Editor',
+        //         ),
+        //         Tab(icon: 'Preview'),
+        //       ],
+        //     ),
+        // Padding(
+        //   padding: EdgeInsets.all(5),
+        //   child: Row(
+        //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //     children: [
+        //       Text(
+        //         '${_controller.index != PageType.preview.index ? 'Editor' : 'Viewer'}',
+        //         style: TextStyle(fontSize: 17),
+        //       ),
+        //       ElevatedButton(
+        //           onPressed: () {
+        //             setState(() {
+        //               if (_controller.index == PageType.preview.index) {
+        //                 setCurrentPage(PageType.editor);
+        //               } else {
+        //                 setCurrentPage(PageType.preview);
+        //               }
+        //             });
+        //           },
+        //           child: Text(
+        //               'Toggle ${_controller.index == PageType.preview.index ? 'Edit' : 'Preview'}')),
+        //     ],
+        //   ),
+        // ),
+        Flexible(
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            controller: _controller,
+            tabs: [
+              Tab(
+                text: 'Editor',
+              ),
+              Tab(text: 'Preview'),
+            ],
           ),
+          title: Text('Editor'),
         ),
-        SafeArea(
-          child: MdPreview(
-            text: _previewText,
-            padding: widget.padding,
-            onTapLink: widget.onTapLink,
-            maxWidth: widget.maxWidth,
-            widgetImage: widget.imageWidget,
-          ),
+        body: TabBarView(
+          controller: _controller,
+          children: <Widget>[
+            SafeArea(
+              child: MdEditor(
+                key: _editorKey,
+                padding: widget.padding,
+                initText: widget.initText,
+                initTitle: widget.initTitle,
+                hintText: widget.hintText,
+                hintTitle: widget.hintTitle,
+                titleStyle: widget.titleTextStyle,
+                textStyle: widget.textStyle,
+                imageSelect: widget.imageSelect,
+                textChange: widget.textChange,
+                actionIconColor: widget.actionIconColor,
+                cursorColor: widget.cursorColor,
+                appendBottomWidget: widget.appendBottomWidget,
+              ),
+            ),
+            SafeArea(
+              child: MdPreview(
+                text: _previewText,
+                padding: widget.padding,
+                onTapLink: widget.onTapLink,
+                maxWidth: widget.maxWidth,
+                widgetImage: widget.imageWidget,
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
+    //   ],
+    // );
   }
 }
 

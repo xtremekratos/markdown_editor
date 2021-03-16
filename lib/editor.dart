@@ -34,7 +34,7 @@ class MdEditor extends StatefulWidget {
   /// see [ImageSelectCallback]
   final ImageSelectCallback imageSelect;
 
-  final VoidCallback textChange;
+  final ValueChanged<String> textChange;
 
   /// Change icon color, eg: color of font_bold icon.
   final Color actionIconColor;
@@ -100,7 +100,7 @@ class MdEditorState extends State<MdEditor> with AutomaticKeepAliveClientMixin {
         selection: TextSelection.collapsed(
             offset: startText.length + text.length - index));
 
-    if (widget.textChange != null) widget.textChange();
+    if (widget.textChange != null) widget.textChange(text);
 
     _editPerform.change(_textEditingController.text);
   }
@@ -130,24 +130,24 @@ class MdEditorState extends State<MdEditor> with AutomaticKeepAliveClientMixin {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  TextField(
-                    maxLines: 1,
-                    cursorColor: widget.cursorColor,
-                    cursorWidth: 1.5,
-                    controller: _titleEditingController,
-                    onChanged: (text) {
-                      if (widget.textChange != null) widget.textChange();
-                    },
-                    style: widget.titleStyle ??
-                        TextStyle(
-                          fontSize: 20.0,
-                          color: const Color(0xFF333333),
-                        ),
-                    decoration: InputDecoration(
-                      hintText: widget.hintTitle ?? '标题',
-                      border: InputBorder.none,
-                    ),
-                  ),
+                  // TextField(
+                  //   maxLines: 1,
+                  //   cursorColor: widget.cursorColor,
+                  //   cursorWidth: 1.5,
+                  //   controller: _titleEditingController,
+                  //   onChanged: (text) {
+                  //     if (widget.textChange != null) {} //widget.textChange();
+                  //   },
+                  //   style: widget.titleStyle ??
+                  //       TextStyle(
+                  //         fontSize: 20.0,
+                  //         color: const Color(0xFF333333),
+                  //       ),
+                  //   decoration: InputDecoration(
+                  //     hintText: widget.hintTitle ?? 'Title', //'标题',
+                  //     border: InputBorder.none,
+                  //   ),
+                  // ),
                   Container(
                     height: 1.0,
                     decoration: BoxDecoration(
@@ -169,10 +169,11 @@ class MdEditorState extends State<MdEditor> with AutomaticKeepAliveClientMixin {
                         ),
                     onChanged: (text) {
                       _editPerform.change(text);
-                      if (widget.textChange != null) widget.textChange();
+                      if (widget.textChange != null) widget.textChange(text);
                     },
                     decoration: InputDecoration(
-                      hintText: widget.hintText ?? '请输入内容',
+                      hintText:
+                          widget.hintText ?? 'Please enter content', //'请输入内容',
                       border: InputBorder.none,
                     ),
                   ),
