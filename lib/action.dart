@@ -80,7 +80,7 @@ class ActionImageState extends State<ActionImage> {
 const _defaultImageAttributes = <ImageAttributes>[
   ImageAttributes(
     type: ActionType.undo,
-    tip: '撤销',
+    tip: 'Undo', //'撤销',
     iconData: const IconData(
       0xe907,
       fontFamily: 'MyIconFont',
@@ -89,7 +89,7 @@ const _defaultImageAttributes = <ImageAttributes>[
   ),
   ImageAttributes(
     type: ActionType.redo,
-    tip: '恢复',
+    tip: 'Redo', //'恢复',
     iconData: const IconData(
       0xe874,
       fontFamily: 'MyIconFont',
@@ -99,7 +99,7 @@ const _defaultImageAttributes = <ImageAttributes>[
   ImageAttributes(
     type: ActionType.image,
     text: '![]()',
-    tip: '图片',
+    tip: 'Image', //'图片',
     positionReverse: 3,
     iconData: const IconData(
       0xe7ac,
@@ -110,7 +110,7 @@ const _defaultImageAttributes = <ImageAttributes>[
   ImageAttributes(
     type: ActionType.link,
     text: '[]()',
-    tip: '链接',
+    tip: 'Link', //'链接',
     positionReverse: 3,
     iconData: const IconData(
       0xe7d8,
@@ -121,7 +121,7 @@ const _defaultImageAttributes = <ImageAttributes>[
   ImageAttributes(
     type: ActionType.fontBold,
     text: '****',
-    tip: '加粗',
+    tip: 'Bold', //'加粗',
     positionReverse: 2,
     iconData: const IconData(
       0xe757,
@@ -132,7 +132,7 @@ const _defaultImageAttributes = <ImageAttributes>[
   ImageAttributes(
     type: ActionType.fontItalic,
     text: '**',
-    tip: '斜体',
+    tip: 'Italic', //'斜体',
     positionReverse: 1,
     iconData: const IconData(
       0xe762,
@@ -143,7 +143,7 @@ const _defaultImageAttributes = <ImageAttributes>[
   ImageAttributes(
     type: ActionType.fontStrikethrough,
     text: '~~~~',
-    tip: '删除线',
+    tip: 'Strikethrough', //'删除线',
     positionReverse: 2,
     iconData: const IconData(
       0xe76a,
@@ -154,7 +154,7 @@ const _defaultImageAttributes = <ImageAttributes>[
   ImageAttributes(
     type: ActionType.textQuote,
     text: '\n>',
-    tip: '文字引用',
+    tip: 'Character quote', //'文字引用',
     positionReverse: 0,
     iconData: const IconData(
       0xe768,
@@ -165,7 +165,7 @@ const _defaultImageAttributes = <ImageAttributes>[
   ImageAttributes(
     type: ActionType.list,
     text: '\n- ',
-    tip: '无序列表',
+    tip: 'Unordered list',
     positionReverse: 0,
     iconData: const IconData(
       0xe764,
@@ -176,7 +176,7 @@ const _defaultImageAttributes = <ImageAttributes>[
   ImageAttributes(
     type: ActionType.h4,
     text: '\n#### ',
-    tip: '四级标题',
+    tip: 'Level 4 heading',
     positionReverse: 0,
     iconData: const IconData(
       0xe75e,
@@ -187,7 +187,7 @@ const _defaultImageAttributes = <ImageAttributes>[
   ImageAttributes(
     type: ActionType.h5,
     text: '\n##### ',
-    tip: '五级标题',
+    tip: 'Level 5 heading', //'五级标题',
     positionReverse: 0,
     iconData: const IconData(
       0xe75f,
@@ -198,7 +198,7 @@ const _defaultImageAttributes = <ImageAttributes>[
   ImageAttributes(
     type: ActionType.h1,
     text: '\n# ',
-    tip: '一级标题',
+    tip: 'Level 1 heading', //'一级标题',
     positionReverse: 0,
     iconData: const IconData(
       0xe75b,
@@ -209,7 +209,7 @@ const _defaultImageAttributes = <ImageAttributes>[
   ImageAttributes(
     type: ActionType.h2,
     text: '\n## ',
-    tip: '二级标题',
+    tip: 'Level 2 heading', //'二级标题',
     positionReverse: 0,
     iconData: const IconData(
       0xe75c,
@@ -220,7 +220,7 @@ const _defaultImageAttributes = <ImageAttributes>[
   ImageAttributes(
     type: ActionType.h3,
     text: '\n### ',
-    tip: '三级标题',
+    tip: 'Level 3 heading', //'三级标题',
     positionReverse: 0,
     iconData: const IconData(
       0xe75d,
