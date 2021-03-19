@@ -115,8 +115,8 @@ class MarkdownEditorWidgetState extends State<MarkdownEditor>
   @override
   Widget build(BuildContext context) {
     return
-        // Column(
-        //   children: [
+        Column(
+          children: [
         //     TabBar(
         //       controller: _controller,
         //       tabs: [
@@ -196,9 +196,8 @@ class MarkdownEditorWidgetState extends State<MarkdownEditor>
           ],
         ),
       ),
+      ],
     );
-    //   ],
-    // );
   }
 }
 
